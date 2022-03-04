@@ -1,36 +1,40 @@
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
 public class Deck {
-    public HashMap<Integer, Card> deck = new HashMap<>();
-    private String[] faces = {"Clubs", "Spades", "Hearts", "Diamonds"};
-    private String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+    private ArrayList<Card> deck = new ArrayList<>();
+    private final static String[] faces = {"Clubs", "Spades", "Hearts", "Diamonds"};
+    private final static String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
 
     public Deck() {
-        int k = 0;
         for (int i = 0; i < ranks.length; i++) {
             for (int j = 0; j < faces.length; j++) {
-                deck.put(k, new Card(ranks[i], faces[j]));
-                k++;
+                deck.add(new Card(ranks[i], faces[j]));
             }
         }
     }
 
     public Card drawCard(){
-        Integer randomNumber = new Random().nextInt(deck.size());
+        int randomNumber = new Random().nextInt(deck.size());
         Card drawnCard = deck.get(randomNumber);
         deck.remove(randomNumber);
+        System.out.printf("Deck has %d cards left. ", deck.size());
         return drawnCard;
     }
 
     public void printDeck(){
         System.out.printf("There are %d cards left in the deck.", deck.size());
-        for (Integer key: deck.keySet()){
-            System.out.println(deck.get(key).toString());
+        for (int i = 0; i < deck.size(); i++){
+            System.out.println(deck.get(i).toString());
         }
     }
+
+
 
     //Old versions
     public void createDeck(){

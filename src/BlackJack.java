@@ -24,14 +24,17 @@ public class BlackJack {
                 case "h":
                     int j = player.getHand().size();
                     player.hit(deck);
+                    System.out.println("Player hand size: " + player.getHand().size());
                     player.showHand();
+                    System.out.println("\nTotal Value: " + player.getValue());
                     break;
                 case "s":
                     computer.takeTurn();
+                    deck.printDeck();
                     break loop;
             }
 
-            System.out.println(player.getValue());
+            //System.out.println(player.getValue());
         }
         //returning the value of your hand
     }
