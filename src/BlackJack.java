@@ -1,5 +1,3 @@
-import java.util.Arrays;
-import java.util.Random;
 import java.util.Scanner;
 
 public class BlackJack {
@@ -12,7 +10,6 @@ public class BlackJack {
 
         //First Deal
         player.deal(deck);
-        player.showHand();
 
         //Game Loop
         loop: while (true){
@@ -22,21 +19,24 @@ public class BlackJack {
                 case "q":
                     break loop;
                 case "h":
-                    int j = player.getHand().size();
                     player.hit(deck);
-                    System.out.println("Player hand size: " + player.getHand().size());
-                    player.showHand();
-                    System.out.println("\nTotal Value: " + player.getValue());
+                    if (player.getValue() > 21){
+                        System.out.println("Bust.");
+                        computer.takeTurn();
+                        break loop;
+                    }
+                    if (player.getValue() == 21){
+                        System.out.println("21.");
+                        computer.takeTurn();
+                        break loop;
+                    }
                     break;
                 case "s":
                     computer.takeTurn();
                     deck.printDeck();
                     break loop;
             }
-
-            //System.out.println(player.getValue());
         }
-        //returning the value of your hand
     }
 
 
