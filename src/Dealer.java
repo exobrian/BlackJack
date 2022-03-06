@@ -1,8 +1,3 @@
-import lombok.Getter;
-import lombok.Setter;
-
-import java.util.ArrayList;
-
 public class Dealer extends Player{
         public Dealer(Deck deck) {
             //Deal Player a hand with two cards drawn from the deck
