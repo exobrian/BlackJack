@@ -1,15 +1,30 @@
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
-public class Player{
+public class Player {
     @Getter @Setter
     private ArrayList<Card> hand = new ArrayList<Card>();
 
-    public void deal(Deck deck){
+    //static member class (aka inner class that acts like the outer)
+    static class Dealer {
+        @Getter @Setter
+        private ArrayList<Card> hand = new ArrayList<Card>();
+        public Dealer(Deck deck) {
+            //Deal Player a hand with two cards drawn from the deck
+            this.getHand().add(deck.drawCard());
+            this.getHand().add(deck.drawCard());
+            System.out.println("Dealer's Hand: ");
+            System.out.println(this.getHand().get(0).toString());
+            System.out.println("[Hidden]");
+        }
+            public void takeTurn() {
+                System.out.println("Dealer takes its turn.");
+        }
+    }
+
+    public Player(Deck deck){
         //Deal Player a hand with two cards drawn from the deck
         this.getHand().add(deck.drawCard());
         this.getHand().add(deck.drawCard());

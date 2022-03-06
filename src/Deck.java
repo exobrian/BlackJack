@@ -1,9 +1,6 @@
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Random;
 
 public class Deck {
@@ -20,12 +17,14 @@ public class Deck {
             }
         }
     }
+
     public Card drawCard(){
         int randomNumber = new Random().nextInt(deck.size());
         Card drawnCard = deck.get(randomNumber);
         deck.remove(randomNumber);
         return drawnCard;
     }
+
     public void printDeck(){
         System.out.printf("There are %d cards left in the deck.", deck.size());
         for (int i = 0; i < deck.size(); i++){
