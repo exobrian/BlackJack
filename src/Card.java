@@ -6,8 +6,6 @@ public class Card {
     private String rank;
     @Getter @Setter
     private String face;
-    @Getter @Setter
-    private int value;
 
     @Override
     public String toString(){

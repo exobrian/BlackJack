@@ -1,15 +1,16 @@
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
-public class Player{
+public class Player {
     @Getter @Setter
     private ArrayList<Card> hand = new ArrayList<Card>();
 
-    public void deal(Deck deck){
+    public Player() {
+    }
+
+    public Player(Deck deck){
         //Deal Player a hand with two cards drawn from the deck
         this.getHand().add(deck.drawCard());
         this.getHand().add(deck.drawCard());
@@ -24,7 +25,8 @@ public class Player{
     }
 
     public void showHand(){
-        System.out.println("Player's Hand: ");
+        String className = this.getClass().getSimpleName();
+        System.out.printf("%S Hand: ", className);
         for (Card card : this.hand){
             System.out.println(card.toString());
         }
