@@ -1,7 +1,10 @@
-import lombok.Getter;
-import lombok.Setter;
+package com.blackjack.exobrian;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import lombok.Getter;
+import lombok.Setter;
 
 public class Player {
     @Getter @Setter
@@ -11,7 +14,7 @@ public class Player {
     }
 
     public Player(Deck deck){
-        //Deal Player a hand with two cards drawn from the deck
+        //Deal com.blackjack.exobrian.Player a hand with two cards drawn from the deck
         this.getHand().add(deck.drawCard());
         this.getHand().add(deck.drawCard());
         this.showHand();

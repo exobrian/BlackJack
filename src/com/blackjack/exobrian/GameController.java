@@ -1,3 +1,5 @@
+package com.blackjack.exobrian;
+
 import java.util.Scanner;
 
 public class GameController {

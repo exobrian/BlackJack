@@ -1,4 +1,4 @@
-import java.util.Scanner;
+package com.blackjack.exobrian;
 
 public class BlackJack {
 

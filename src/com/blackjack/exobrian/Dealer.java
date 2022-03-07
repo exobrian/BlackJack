@@ -1,6 +1,8 @@
+package com.blackjack.exobrian;
+
 public class Dealer extends Player{
         public Dealer(Deck deck) {
-            //Deal Player a hand with two cards drawn from the deck
+            //Deal com.blackjack.exobrian.Player a hand with two cards drawn from the deck
             this.getHand().add(deck.drawCard());
             this.getHand().add(deck.drawCard());
             System.out.println("DEALER Hand: ");
@@ -8,7 +10,7 @@ public class Dealer extends Player{
             System.out.println("[Hidden]");
         }
         public void takeTurn() {
-            System.out.println("Dealer takes its turn.");
+            System.out.println("com.blackjack.exobrian.Dealer takes its turn.");
             this.showHand();
         }
 }

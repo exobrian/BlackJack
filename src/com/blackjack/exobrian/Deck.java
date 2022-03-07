@@ -1,7 +1,10 @@
-import lombok.Getter;
-import lombok.Setter;
+package com.blackjack.exobrian;
+
 import java.util.ArrayList;
 import java.util.Random;
+
+import lombok.Getter;
+import lombok.Setter;
 
 public class Deck {
     private ArrayList<Card> deck = new ArrayList<>();

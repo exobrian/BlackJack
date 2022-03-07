@@ -1,3 +1,5 @@
+package com.blackjack.exobrian;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,7 +14,7 @@ public class Card {
         return (this.rank + " of " + this.face);
     };
 
-    //Constructor using rank and face from Deck
+    //Constructor using rank and face from com.blackjack.exobrian.Deck
     public Card(String rank, String face){
         this.rank = rank;
         this.face = face;
