@@ -14,7 +14,7 @@ public class Card {
         return (this.rank + " of " + this.face);
     };
 
-    //Constructor using rank and face from com.blackjack.exobrian.Deck
+    //Constructor using rank and face from Deck
     public Card(String rank, String face){
         this.rank = rank;
         this.face = face;

@@ -2,49 +2,56 @@ package com.blackjack.exobrian;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import lombok.Getter;
 import lombok.Setter;
 
 public class Player {
     @Getter @Setter
     private ArrayList<Card> hand = new ArrayList<Card>();
+    @Getter @Setter
+    private Deck deck;
+    @Getter @Setter
+    private boolean isBust;
 
     public Player() {
     }
 
+    //Constructor for a player; deals 2 starting cards.
     public Player(Deck deck){
-        //Deal com.blackjack.exobrian.Player a hand with two cards drawn from the deck
+        this.deck = deck;
+        this.isBust = false;
         this.getHand().add(deck.drawCard());
         this.getHand().add(deck.drawCard());
         this.showHand();
-        System.out.println("Hand Value: " + this.getValue());
+        this.printValue();
     }
 
+    //Draws one card into hand. Also sets bust boolean.
     public void hit(Deck deck){
         this.getHand().add(deck.drawCard());
         this.showHand();
-        System.out.println("Hand Value: " + this.getValue());
+        if (this.getValue() > 21){ this.isBust = true; }
+        this.printValue();
     }
 
+    //Prints out all cards in hand.
     public void showHand(){
         String className = this.getClass().getSimpleName();
-        System.out.printf("%S Hand: ", className);
+        System.out.printf("%S Hand: \n", className);
         for (Card card : this.hand){
             System.out.println(card.toString());
         }
     }
 
+    //Calculates value of hand. Checks for aces to maximize value while remaining under 21.
     public int getValue(){
-        int value;
+        int value = 0;
         int sum = 0;
         int aceCount = 0;
         int aceCounter = 0;
+        String[] ranks = Deck.getRanks();
 
-        String[] ranks = Deck.getRanks();  //{"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
-
-        //Clean this up later
-        //Add up card values in hand. Then for any aces, add another 10 (to make its value equal 11). Stop if sum > 21.
+        //Add up card values in hand.
         for (Card card : this.hand){
             if (card.getRank() == "Ace"){
                 aceCount++;
@@ -52,10 +59,17 @@ public class Player {
         value = Arrays.asList(ranks).indexOf(card.getRank()) > 9 ? 10: Arrays.asList(ranks).indexOf(card.getRank()) + 1;
         sum += value;
         }
+
+        //For any aces, add another 10 (to make its value equal 11). Stop if sum > 21.
         while (sum + aceCounter*10 <= 21 && aceCounter <= aceCount){
             sum += aceCounter*10;
             aceCounter++;
         }
         return sum;
+    }
+
+    //Prints value of hand
+    public void printValue(){
+        System.out.println("Value: " + this.getValue() + "\n");
     }
 }
