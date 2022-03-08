@@ -21,7 +21,7 @@ public class Dealer extends Player{
 
         //Dealer turn at end of player's moves. Dealer always hits until hand >= 17.
         public void takeTurn() {
-            System.out.println("Dealer takes its turn.");
+            System.out.println("Dealer takes its turn.\n");
             while (this.getValue() < 17){
                 this.hit(deck);
             }

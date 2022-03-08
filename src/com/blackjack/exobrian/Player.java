@@ -30,7 +30,9 @@ public class Player {
     //Draws one card into hand. Also sets bust boolean.
     public void hit(Deck deck){
         this.getHand().add(deck.drawCard());
-        if (this.getValue() > 21){ this.isBust = true; }
+        if (this.getValue() > 21){
+            this.isBust = true;
+        }
     }
 
     //Prints out all cards in hand.
