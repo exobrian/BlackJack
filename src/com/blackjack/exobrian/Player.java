@@ -13,6 +13,7 @@ public class Player {
     @Getter @Setter
     private boolean isBust;
 
+    //Default Constructor; empty for Dealer subclass to use as no arg constructor.
     public Player() {
     }
 
