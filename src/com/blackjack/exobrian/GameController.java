@@ -10,6 +10,7 @@ public class GameController {
 
     //Game Loop
     public void startGame() {
+        //Player's turn
         loop:
         while (!deck.getDeck().isEmpty()) {
             System.out.println("\nPress h to hit, s to stand. \nPress q to quit: ");
@@ -26,7 +27,7 @@ public class GameController {
                     if (player.isBust()) {
                         System.out.println("Bust.\n");
                         break loop;
-                    }else if (player.getValue() == 21) {
+                    } else if (player.getValue() == 21) {
                         break loop;
                     }
                     break;
@@ -41,20 +42,20 @@ public class GameController {
         dealer.printValue();
 
         //Win Condition Check
-        //Check if any player busted first. If neither busted, then check for closest score to 21.
+        //If neither busted, check for closest score to 21.
+        //Else check who busted to figure out the loser.
         if (!player.isBust() && !dealer.isBust()) {
             if (player.getValue() < dealer.getValue()) {
                 System.out.println("Dealer wins.");
             } else if (player.getValue() > dealer.getValue()) {
                 System.out.println("Player wins");
-            } else
-                System.out.println("It's a push.");
-        //If someone busted while the other didn't, they lose.
-        }else if (player.isBust() && !dealer.isBust()) {
+            }
+        } else if (player.isBust() && !dealer.isBust()) {
             System.out.println("Dealer wins.");
-        }else if (!player.isBust() && dealer.isBust()) {
+        } else if (!player.isBust() && dealer.isBust()) {
             System.out.println("Player wins");
-        }else
+        } else {
             System.out.println("It's a push.");
+        }
     }
 }
