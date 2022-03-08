@@ -21,12 +21,12 @@ public class GameController {
                     System.exit(0);
                 case "h":
                     player.hit(deck);
-                    if (player.getValue() > 21) {
+                    player.showHand();
+                    player.printValue();
+                    if (player.isBust()) {
                         System.out.println("Bust.\n");
                         break loop;
-                    }
-                    if (player.getValue() == 21) {
-                        System.out.println("21.\n");
+                    }else if (player.getValue() == 21) {
                         break loop;
                     }
                     break;
