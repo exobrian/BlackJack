@@ -15,7 +15,7 @@ public class GameController {
         while (!deck.getDeck().isEmpty()) {
             //Player BlackJack check
             if (player.getValue() == 21) {
-                System.out.println("BlackJack!");
+                System.out.println("Player has BlackJack!\n");
                 break loop;
             }
             System.out.println("\nPress h to hit, s to stand. \nPress q to quit: ");
@@ -56,11 +56,10 @@ public class GameController {
                 System.out.println("Dealer wins.");
             } else if (player.getValue() > dealer.getValue()) {
                 System.out.println("Player wins");
-            }
+            } else
+                System.out.println("It's a push.");
         } else if (!player.isBust() && dealer.isBust()) {
             System.out.println("Player wins");
-        } else {
-            System.out.println("It's a push.");
         }
     }
 }
