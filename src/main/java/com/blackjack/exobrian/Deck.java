@@ -8,9 +8,9 @@ import lombok.Setter;
 public class Deck {
     @Getter @Setter
     private ArrayList<Card> deck = new ArrayList<>();
-    @Getter @Setter
+    @Getter
     private final static String[] faces = {"Clubs", "Spades", "Hearts", "Diamonds"};
-    @Getter @Setter
+    @Getter
     private final static String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
 
     //Constructor; makes deck of 52 cards
